@@ -16,8 +16,4 @@ public class PersonController extends BaseController<PersonDTO, Person>{
         super(service, mapper);
     }
 
-    public String test(){
-        System.out.println("test");
-        return "TEST";
-    }
 }
