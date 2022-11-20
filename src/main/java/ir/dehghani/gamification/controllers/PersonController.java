@@ -15,4 +15,9 @@ public class PersonController extends BaseController<PersonDTO, Person>{
     public PersonController(BaseService<Person> service, Dto2Entity<PersonDTO, Person> mapper) {
         super(service, mapper);
     }
+
+    public String test(){
+        System.out.println("test");
+        return "TEST";
+    }
 }
