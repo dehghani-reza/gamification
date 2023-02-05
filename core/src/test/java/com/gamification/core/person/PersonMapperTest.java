@@ -1,11 +1,12 @@
-package ir.dehghani.gamification.mappers.person;
+package com.gamification.core.person;
 
-import ir.dehghani.gamification.entities.Person;
-import ir.dehghani.gamification.model.person.PersonDTO;
+import com.gamification.core.entities.Person;
+import com.gamification.core.mappers.person.PersonMapper;
+import com.gamification.core.model.person.PersonDTO;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PersonMapperTest {
 
