@@ -1,4 +1,4 @@
-package ir.dehghani.gamification.config;
+package com.gamification.core.core;
 
 import lombok.Getter;
 import lombok.Setter;
