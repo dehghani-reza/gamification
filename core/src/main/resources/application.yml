@@ -25,15 +25,9 @@ spring:
   config:
     activate:
       on-profile: dev
-name: dev-YAML
-environment: development
-enabled: true
 
 ---
 spring:
   config:
     activate:
       on-profile: prod
-name: prod-YAML
-environment: production
-enabled: false

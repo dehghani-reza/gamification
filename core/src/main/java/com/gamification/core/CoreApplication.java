@@ -1,26 +1,28 @@
 package com.gamification.core;
 
 import com.gamification.core.core.ServerProperties;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.text.MessageFormat;
+
+@RequiredArgsConstructor
 @SpringBootApplication
 public class CoreApplication implements CommandLineRunner {
-
-    @Autowired
-    private ServerProperties properties;
+    private static final Logger logger = LoggerFactory.getLogger(CoreApplication.class);
+    private final ServerProperties properties;
 
     public static void main(String[] args) {
         SpringApplication.run(CoreApplication.class, args);
     }
 
-    public void run(String... args) throws Exception {
-        System.out.println("using environment: " + properties.getEnvironment());
-        System.out.println("name: " + properties.getName());
-        System.out.println("enabled:" + properties.isEnabled());
-        System.out.println("servers: " + properties.getServers());
+    public void run(String... args) {
+        final String env = MessageFormat.format("using environment: [{0}]", properties.getEnvironment());
+        logger.info(env);
     }
 
 }
