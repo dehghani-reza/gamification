@@ -5,7 +5,6 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 public abstract class BaseDTO {
-
     private Long id;
     private String ip;
     private Long version;
