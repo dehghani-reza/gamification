@@ -1,0 +1,13 @@
+#!/bin/sh
+	MSG_FILE=$(cat "${1:?Missing commit message file}")
+    REGEX_FORMAT="(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert)(\([\w\-]+\))?:\s[\w\-_]+.*$"
+    REGEX="^(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert)(\([a-zA-Z0-9_.-]+\))?:[[:space:]][a-zA-Z0-9_.-]+.*$"
+	ERROR_MSG="⛔Commit message must follow conventional commit"
+	if [[ $MSG_FILE =~ $REGEX ]]; then
+		echo "👌Nice commit!"
+	else
+		echo $ERROR_MSG
+		echo "Bad commit \"$MSG_FILE\", check format."
+		echo "regex format: $REGEX_FORMAT "
+		exit 1
+	fi
