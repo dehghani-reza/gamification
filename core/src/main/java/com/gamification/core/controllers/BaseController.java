@@ -15,6 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.time.LocalDateTime;
+
 @RequiredArgsConstructor
 public abstract class BaseController<D extends BaseDTO, E extends BaseEntity, M extends BaseMapper<D, E>> {
     protected final BaseService<E> service;
@@ -24,7 +26,10 @@ public abstract class BaseController<D extends BaseDTO, E extends BaseEntity, M 
 
     @PostMapping(value = RestAddress.SAVE)
     public ResponseEntity<ResultDTO<BaseDTO>> save(@RequestBody InputDTO<D> dto) {
-        service.save(mapper.dto2Entity(dto.getData()));
+        E e = mapper.dto2Entity(dto.getData());
+        e.setCreateById(dto.getUserId());//FIXME get from JWT
+        e.setCreateDate(LocalDateTime.now());
+        service.save(e);
         return new ResponseEntity<>(ResultDTO.builder().message("CREATED").build(), HttpStatus.CREATED);
     }
 
