@@ -15,7 +15,7 @@ class PersonMapperTest {
     @Test
     public void givenPersonToPersonDTO_whenMaps_thenCorrect() {
         Person person = new Person("amir", "fathi");
-        PersonDTO personDTO = mapper.personDTO2Person(person);
+        PersonDTO personDTO = mapper.entity2Dto(person);
         assertEquals(person.getFirstName(), personDTO.getFirstName());
         assertEquals(person.getLastName(), personDTO.getLastName());
 
@@ -24,7 +24,7 @@ class PersonMapperTest {
     @Test
     public void givenPersonDTOToPerson_whenMaps_thenCorrect() {
         PersonDTO personDTO = new PersonDTO("amir", "fathi");
-        Person person = mapper.person2PersonDTO(personDTO);
+        Person person = mapper.dto2Entity(personDTO);
         assertEquals(personDTO.getFirstName(), person.getFirstName());
         assertEquals(personDTO.getLastName(), person.getLastName());
 

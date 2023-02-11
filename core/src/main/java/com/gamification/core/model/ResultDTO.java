@@ -1,9 +1,13 @@
 package com.gamification.core.model;
 
-import lombok.Value;
+import lombok.Builder;
+import lombok.Data;
 
-@Value
-public class ResultDTO {
+import java.util.List;
 
-    private String message;
+@Data
+@Builder
+public class ResultDTO<D extends BaseDTO> {
+    String message;
+    List<D> resultList;
 }

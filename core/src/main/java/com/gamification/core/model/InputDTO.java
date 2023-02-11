@@ -3,8 +3,8 @@ package com.gamification.core.model;
 import lombok.Data;
 
 @Data
-public class InputDTO<DATA extends BaseDTO> {
+public class InputDTO<D extends BaseDTO> {
 
-    private DATA data;
+    private D data;
 
 }
