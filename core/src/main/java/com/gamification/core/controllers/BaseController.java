@@ -3,7 +3,7 @@ package com.gamification.core.controllers;
 
 import com.gamification.core.RestAddress;
 import com.gamification.core.entities.BaseEntity;
-import com.gamification.core.mappers.person.BaseMapper;
+import com.gamification.core.mappers.BaseMapper;
 import com.gamification.core.model.BaseDTO;
 import com.gamification.core.model.InputDTO;
 import com.gamification.core.model.ResultDTO;

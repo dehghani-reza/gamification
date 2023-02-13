@@ -1,4 +1,4 @@
-package com.gamification.core.mappers.person;
+package com.gamification.core.mappers;
 
 public interface BaseMapper<D, E> {
     D entity2Dto(E entity);
