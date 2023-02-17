@@ -1,5 +1,5 @@
 package com.gamification.core.enumeration;
 
-public enum Role {
+public enum EN_ROLE {
     ADMIN
 }

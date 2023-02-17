@@ -1,10 +1,9 @@
 package com.gamification.core.entities;
 
-import com.gamification.core.enumeration.Role;
+import com.gamification.core.enumeration.EN_ROLE;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User extends BaseEntity implements UserDetails, CredentialsContainer {
+public class User extends BaseEntity implements UserDetails {
 
     private String username;
     private String password;
@@ -28,7 +27,10 @@ public class User extends BaseEntity implements UserDetails, CredentialsContaine
     private Person person;
 
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private EN_ROLE role;
+    private Boolean isAccountNonExpired;
+    private Boolean isAccountNonLocked;
+    private Boolean isEnabled;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -42,26 +44,21 @@ public class User extends BaseEntity implements UserDetails, CredentialsContaine
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return Boolean.TRUE.equals(this.isAccountNonExpired);
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return Boolean.TRUE.equals(this.isAccountNonLocked);
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return Boolean.TRUE.equals(this.isAccountNonExpired) && Boolean.TRUE.equals(this.isAccountNonLocked) && Boolean.TRUE.equals(this.isEnabled);
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
-    }
-
-    @Override
-    public void eraseCredentials() {
-
+        return Boolean.TRUE.equals(this.isEnabled);
     }
 }
