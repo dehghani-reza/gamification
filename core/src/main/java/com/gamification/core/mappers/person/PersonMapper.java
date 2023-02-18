@@ -6,9 +6,4 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface PersonMapper extends BaseMapper<PersonDTO, Person> {
-    @Override
-    PersonDTO entity2Dto(Person entity);
-
-    @Override
-    Person dto2Entity(PersonDTO dto);
 }
