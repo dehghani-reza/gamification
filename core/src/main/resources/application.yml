@@ -16,6 +16,10 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 ---
 spring:
   config:

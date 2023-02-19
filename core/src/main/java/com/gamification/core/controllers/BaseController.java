@@ -8,10 +8,13 @@ import com.gamification.core.model.BaseDTO;
 import com.gamification.core.model.InputDTO;
 import com.gamification.core.model.ResultDTO;
 import com.gamification.core.services.BaseService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNullApi;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -25,7 +28,8 @@ public abstract class BaseController<D extends BaseDTO, E extends BaseEntity, M 
     protected abstract Class<M> getMapper();
 
     @PostMapping(value = RestAddress.SAVE)
-    public ResponseEntity<ResultDTO<BaseDTO>> save(@RequestBody InputDTO<D> dto) {
+    public ResponseEntity<ResultDTO<BaseDTO>> save(@ApiParam(value = "this is a model that you fill for saving data")
+                                                   @RequestBody InputDTO<D> dto) {
         E e = mapper.dto2Entity(dto.getData());
         e.setCreateById(dto.getUserId());//FIXME get from JWT
         e.setCreateDate(LocalDateTime.now());
