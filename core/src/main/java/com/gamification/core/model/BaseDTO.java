@@ -6,6 +6,7 @@ import lombok.*;
 @NoArgsConstructor
 public abstract class BaseDTO {
     private Long id;
+    private Long hashCode;
     private String ip;
     private Long version;
     private EN_STATE state;
