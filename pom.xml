@@ -10,6 +10,7 @@
     <description>scrum feature for task tracking</description>
     <modules>
         <module>core</module>
+        <module>app</module>
     </modules>
 
 </project>
