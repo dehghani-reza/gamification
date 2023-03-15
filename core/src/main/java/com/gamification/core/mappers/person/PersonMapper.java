@@ -1,13 +1,15 @@
 package com.gamification.core.mappers.person;
 
 import com.gamification.core.entities.Person;
+import com.gamification.core.mappers.BaseMapper;
 import com.gamification.core.model.person.PersonDTO;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel ="spring")
-public interface PersonMapper {
+@Mapper(componentModel = "spring")
+public interface PersonMapper extends BaseMapper<PersonDTO, Person> {
+    @Override
+    PersonDTO entity2Dto(Person entity);
 
-    Person person2PersonDTO(PersonDTO dto);
-
-    PersonDTO personDTO2Person(Person entity);
+    @Override
+    Person dto2Entity(PersonDTO dto);
 }

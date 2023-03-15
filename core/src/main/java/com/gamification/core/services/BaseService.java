@@ -10,34 +10,34 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 @RequiredArgsConstructor
-public abstract class BaseService<Entity extends BaseEntity> {
+public abstract class BaseService<E extends BaseEntity> {
 
-    protected final JpaRepository<Entity,Long> jpaRepository;
-    public <S extends Entity> S save(S entity){
+    protected final JpaRepository<E,Long> jpaRepository;
+    public <S extends E> S save(S entity){
         return jpaRepository.save(entity);
     }
 
-    public <S extends Entity> Iterable<S> saveAll(Iterable<S> entities){
+    public <S extends E> Iterable<S> saveAll(Iterable<S> entities){
         return jpaRepository.saveAll(entities);
     }
 
-    public Optional<Entity> findById(Long id){
+    public Optional<E> findById(Long id){
         return jpaRepository.findById(id);
     }
 
-    public List<Entity> findAll(){
+    public List<E> findAll(){
         return jpaRepository.findAll();
     }
 
-    public List<Entity> findAll(Sort sort){
+    public List<E> findAll(Sort sort){
         return jpaRepository.findAll(sort);
     }
 
-    public List<Entity> findAllById(Iterable<Long> ids) {
+    public List<E> findAllById(Iterable<Long> ids) {
         return jpaRepository.findAllById(ids);
     }
 
-    public Page<Entity> findAll(Pageable pageable) {
+    public Page<E> findAll(Pageable pageable) {
         return jpaRepository.findAll(pageable);
     }
 
@@ -45,19 +45,19 @@ public abstract class BaseService<Entity extends BaseEntity> {
         jpaRepository.deleteById(id);
     }
 
-    public void delete(Entity entity){
-        jpaRepository.delete(entity);
+    public void delete(E e){
+        jpaRepository.delete(e);
     }
 
-    public void deleteAllById(Iterable<? extends Long> ids){
+    public void deleteAllById(Iterable<Long> ids){
         jpaRepository.deleteAllById(ids);
     }
 
-    public void deleteAll(Iterable<? extends Entity> entities){
+    public void deleteAll(Iterable<? extends E> entities){
         jpaRepository.deleteAll(entities);
     }
 
-    public void deleteAllInBatch(Iterable<Entity> entities) {
+    public void deleteAllInBatch(Iterable<E> entities) {
         jpaRepository.deleteAllInBatch(entities);
     }
 
@@ -65,7 +65,7 @@ public abstract class BaseService<Entity extends BaseEntity> {
         jpaRepository.deleteAllByIdInBatch(ids);
     }
 
-    public Entity getReferenceById(Long id){
+    public E getReferenceById(Long id){
         return jpaRepository.getReferenceById(id);
     }
 
