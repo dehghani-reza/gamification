@@ -10,6 +10,8 @@ import lombok.*;
 public abstract class BaseDTO {
     @ApiModelProperty(notes = "this is a unique id for model")
     private Long id;
+    @ApiModelProperty(notes = "this is a hash code for id")
+    private Long hashCode;
     @ApiModelProperty(notes = "this is machine's ip")
     private String ip;
     @ApiModelProperty(notes = "this is for handling optimistic locking")
