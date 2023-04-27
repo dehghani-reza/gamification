@@ -1,5 +1,6 @@
 package com.smartagilify.core.entities;
 
+import com.gamification.core.entities.base.HibernateStaticValues;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public abstract class MainBaseEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = HibernateStaticValues.ID_SEQ_GENERATOR)
     private Long id;
     private String ip;
     @Version

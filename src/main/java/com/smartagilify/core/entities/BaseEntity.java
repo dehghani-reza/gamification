@@ -16,19 +16,19 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public abstract class BaseEntity extends MainBaseEntity {
-    @Column(name = "CREATE_DATE", nullable = false, updatable = false)
+    @Column(name = HibernateStaticValues.CREATE_DATE, nullable = false, updatable = false)
     private LocalDateTime createDate;
-    @Column(name = "CREATE_BY_ID", nullable = false, updatable = false)
+    @Column(name = HibernateStaticValues.CREATE_BY_ID, nullable = false, updatable = false)
     private Long createById;
-    @Column(name = "UPDATE_DATE")
+    @Column(name = HibernateStaticValues.UPDATE_DATE)
     private LocalDateTime updateDate;
-    @Column(name = "UPDATE_BY_ID")
+    @Column(name = HibernateStaticValues.UPDATE_BY_ID)
     private Long updateById;
     @Enumerated(EnumType.STRING)
-    @Column(name = "STATE")
+    @Column(name = HibernateStaticValues.STATE)
     private EN_STATE state;
-    @Column(name = "ROW_LEVEL_ID")
+    @Column(name = HibernateStaticValues.ROW_LEVEL_ID)
     private Integer rowLevelId;
-    @Column(name = "PRIORITY")
+    @Column(name = HibernateStaticValues.PRIORITY)
     private Integer priority;
 }
