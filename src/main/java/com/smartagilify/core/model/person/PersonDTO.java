@@ -3,11 +3,11 @@ package com.smartagilify.core.model.person;
 import com.smartagilify.core.model.BaseDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Value;
+import lombok.*;
 
 @ApiModel(description = "Details about person")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class PersonDTO extends BaseDTO {
