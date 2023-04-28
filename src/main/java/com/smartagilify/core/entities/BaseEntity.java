@@ -1,5 +1,6 @@
 package com.smartagilify.core.entities;
 
+import com.smartagilify.core.entities.base.HibernateStaticValues;
 import com.smartagilify.core.enumerations.EN_STATE;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
