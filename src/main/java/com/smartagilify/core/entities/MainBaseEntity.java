@@ -1,6 +1,4 @@
 package com.smartagilify.core.entities;
-
-import com.gamification.core.entities.base.HibernateStaticValues;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
